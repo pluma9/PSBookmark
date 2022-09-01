@@ -124,6 +124,33 @@ function Get-LocationBookmark
     }
 }
 
+function Get-LocationBookmarkValue
+{
+    [CmdletBinding()]
+    param (
+
+    )
+
+    DynamicParam
+    {
+        if (Test-Path -Path $dataPath)
+        {
+            $locationHash = .$dataPath
+            return (New-DynamicParameter -Name 'Alias' -actionObject $locationHash)
+        }
+    }
+
+    begin
+    {
+        $alias = $PsBoundParameters['Alias']
+    }
+
+    process
+    {
+        return $locationHash[$alias]
+    }
+}
+
 function Remove-LocationBookmark
 {
     [CmdletBinding()]
@@ -156,5 +183,6 @@ Set-Alias -Name goto -Value Set-LocationBookmarkAsPWD
 Set-Alias -Name save -Value Save-LocationBookmark
 Set-Alias -Name glb -Value Get-LocationBookmark
 Set-Alias -Name rlb -Value Remove-LocationBookmark
+Set-Alias -Name glbv -Value Get-LocationBookmarkValue
 
-Export-ModuleMember -Function Save-LocationBookmark,Set-LocationBookmarkAsPWD,Get-LocationBookmark,Remove-LocationBookmark -Alias goto,save,glb,rlb
+Export-ModuleMember -Function Save-LocationBookmark,Set-LocationBookmarkAsPWD,Get-LocationBookmark,Remove-LocationBookmark,Get-LocationBookmarkValue -Alias goto,save,glb,rlb,glbv
