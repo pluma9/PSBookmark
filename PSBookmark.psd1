@@ -12,7 +12,7 @@
 RootModule = 'PSBookmark.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1'
+ModuleVersion = '1.0.2'
 
 # ID used to uniquely identify this module
 GUID = '298a7c5c-d670-4093-bae2-0d6c2935a182'
@@ -66,7 +66,7 @@ Description = 'Adds the capability to create location bookmarks for easier acces
 # NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = 'Save-LocationBookmark','Set-LocationBookmarkAsPWD','Get-LocationBookmark','Remove-LocationBookmark'
+FunctionsToExport = 'Save-LocationBookmark','Set-LocationBookmarkAsPWD','Get-LocationBookmark','Remove-LocationBookmark','Get-LocationBookmarkValue'
 
 # Cmdlets to export from this module
 CmdletsToExport = '*'
@@ -75,7 +75,7 @@ CmdletsToExport = '*'
 VariablesToExport = '*'
 
 # Aliases to export from this module
-AliasesToExport = 'goto','save','glb','rlb'
+AliasesToExport = 'goto','save','glb','rlb','glbv'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
